@@ -19,7 +19,7 @@ namespace Application.Features.Brands.Rules
             _brandRepository = brandRepository;
         }
 
-        public async Task SomeFeatureEntityNameCanNotBeDuplicatedWhenInserted(string name)
+        public async Task BrandNameCanNotBeDuplicatedWhenInserted(string name)
         {
             IPaginate<Brand> result = await _brandRepository.GetListAsync(b => b.Name == name);
             if (result.Items.Any()) throw new BusinessException("Brand name exists.");
